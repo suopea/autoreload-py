@@ -47,7 +47,7 @@ def something_changed(files, start_time):
 
 
 def get_python_files():
-    return glob("**/*.py")
+    return glob("**/*.py") + glob("*.py")
 
 
 main()
