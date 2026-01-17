@@ -7,6 +7,8 @@ Lots of time and attention gets wasted on switching between an editor and the te
 
 ![autoreload doing what's described below](img/autoreload.gif)
 
+It just feels *really good* to use. Like a gentle breath of fresh air every time you save.
+
 ## how to use it
 
 There's no dependencies, you only need the `autoreload.py` file!
