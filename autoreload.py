@@ -35,7 +35,7 @@ def main():
 
 
 def get_python_files():
-    return glob("**/*.py") + glob("*.py")
+    return glob("**/*.py", recursive=True)
 
 
 def print_info():
