@@ -4,7 +4,7 @@ This script detects when you save changes in your script, and automatically runs
 
 Lots of time and attention gets wasted on switching between an editor and the terminal, manually running the script after making changes. Even if it's just a few keypresses, we do it so often that it might as well be automated. 
 
-![autoreload.gif]
+![autoreload doing its thing](autoreload.gif)
 
 ## how to use it
 
