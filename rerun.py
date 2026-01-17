@@ -7,22 +7,12 @@ from time import sleep
 
 check_interval = 0.1
 
-"""
-todo
-
-- make sure user input works
-- is it necessary to wait for the child to die
-
-"""
-
 
 def main():
     python_path = sys.executable
     args = [python_path] + sys.argv[1:]
     start_time = time()
-    print(args)
     files = get_python_files()
-    print(f"files are {files}")
     for file in files:
         with open(file) as f:
             print(os.fstat(f.fileno()).st_mtime)
