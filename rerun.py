@@ -7,6 +7,14 @@ from time import sleep
 
 check_interval = 0.1
 
+"""
+todo
+
+- make sure user input works
+- is it necessary to wait for the child to die
+
+"""
+
 
 def main():
     python_path = sys.executable
@@ -21,13 +29,12 @@ def main():
     child = subprocess.Popen(args)
     while True:
         sleep(check_interval)
+        if child.poll() is not None:
+            quit()
         if something_changed(files, start_time):
             child.kill()
-            # todo wait for child to die
-            sleep(0.2)
             child = subprocess.Popen(args)
             start_time = time()
-        # todo if child quits quit the parent
 
 
 def something_changed(files, start_time):
