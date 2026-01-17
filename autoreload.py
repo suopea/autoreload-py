@@ -20,8 +20,6 @@ def main():
     child = subprocess.Popen(args)
     while True:
         sleep(check_interval)
-        if child.poll() is not None:
-            quit()
         if something_changed(files, start_time):
             child.kill()
             child = subprocess.Popen(args)
