@@ -11,7 +11,7 @@ It just feels *really good* to use. Like a gentle breath of fresh air every time
 
 ## how to use it
 
-There's no dependencies, you only need the `autoreload.py` file!
+There's no dependencies, you only need the `autoreload.py` file! I don't think it matters which text editor or IDE you are using, just as long as the file gets saved.
 
 Just replace `python3` with `python3 autoreload.py`, so if you would normally do
 ```bash
