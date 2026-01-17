@@ -5,7 +5,7 @@ This script detects when you save changes in your script, and automatically runs
 Lots of time and attention gets wasted on switching between an editor and the terminal, manually running the script after making changes. Even if it's just a few keypresses, we do it so often that it might as well be automated. 
 
 
-![autoreload doing what's described below](gif/autoreload.gif)
+![autoreload doing what's described below](img/autoreload.gif)
 
 ## how to use it
 
@@ -26,7 +26,7 @@ If `your_script.py` terminates, `autoreload` will wait for a change to be made a
 
 ## usage with one or none scripts
 
-![autoreload handling an empty directory](gif/empty_dir.gif)
+![autoreload handling an empty directory](img/empty_dir.gif)
 
 If there's only one .py file in the current directory, you can just run `autoreload` and it will automatically run the lonely script. 
 
