@@ -12,11 +12,7 @@ def main():
     python_path = sys.executable
     args = [python_path] + sys.argv[1:]
     start_time = time()
-    print(f"args are {sys.argv}")
     files = get_python_files()
-    for file in files:
-        with open(file) as f:
-            print(os.fstat(f.fileno()).st_mtime)
     child = subprocess.Popen(args)
     while True:
         sleep(check_interval)
