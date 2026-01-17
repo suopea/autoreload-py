@@ -12,6 +12,7 @@ def main():
     python_path = sys.executable
     args = [python_path] + sys.argv[1:]
     start_time = time()
+    print(f"args are {sys.argv}")
     files = get_python_files()
     for file in files:
         with open(file) as f:
@@ -38,9 +39,7 @@ def something_changed(files, start_time):
 
 
 def get_python_files():
-    files = glob("*.py")
-    files.remove(sys.argv[0])
-    return files
+    return glob("*.py")
 
 
 main()
