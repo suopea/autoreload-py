@@ -20,12 +20,12 @@ python3 autoreload.py your_script.py arg1 arg2
 If `your_script.py` terminates, `autoreload` will wait for a change to be made and then will run it again.
 
 
-It's probably best to turn it into an alias using an absolute path so that you can use it anywhere like this:
+The previous example assumes that `autoreload.py` is in the same directory as `your_script.py`. You probably don't want that, so instead make an alias using an absolute path so that you can use it anywhere like this:
 ```bash
 autoreload your_script.py arg1 arg2
 ```
 
 So to your rc file add something like:
 ```bash
-alias autoreload='python3 ~/code/autoreload-python/autoreload.py'
+alias autoreload='python3 ~/code/autoreload-py/autoreload.py'
 ```

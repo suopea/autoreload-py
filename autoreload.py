@@ -9,6 +9,20 @@ check_interval = 0.1
 
 
 def main():
+    if len(sys.argv) < 2:
+        print("""
+    Use like this:
+
+        autoreload.py your_script.py
+
+    Or with arguments:
+
+        autoreload.py your_script.py arg1 arg2
+
+    your_script will be run and automatically reloaded
+    whenever changes are detected
+        """)
+        quit()
     python_path = sys.executable
     args = [python_path] + sys.argv[1:]
     start_time = time()
@@ -33,7 +47,7 @@ def something_changed(files, start_time):
 
 
 def get_python_files():
-    return glob("*.py")
+    return glob("**/*.py")
 
 
 main()
