@@ -8,6 +8,37 @@ from time import sleep
 check_interval = 0.1
 
 
+class Project:
+
+    def __init__(self):
+        self.type = None
+        self.auto_args = True
+        self.files = []
+        self.args = []
+
+    def update_files(self):
+        if self.type == "py":
+            self.files = get_python_files()
+        elif self.type == "c":
+            self.files = get_c_files()
+
+    def detect_type(self):
+        if get_python_files() != []:
+            self.type = "py"
+        elif get_c_files() != []:
+            self.type = "c"
+        else:
+            self.type = None
+
+    def wait_for_first_file(self):
+        while self.type is None:
+            sleep(check_interval)
+            self.detect_type()
+
+    def update_args(self):
+        pass
+
+
 def main():
     files = get_python_files()
     if len(sys.argv) < 2:
@@ -36,6 +67,13 @@ def main():
 
 def get_python_files():
     return glob("**/*.py", recursive=True)
+
+
+def get_c_files():
+    files = glob("**/*.c", recursive=True)
+    files += glob("**/*.h", recursive=True)
+    files += glob("*akefile")
+    return files
 
 
 def print_info():
@@ -70,5 +108,4 @@ def something_changed(files, start_time):
                 return True
     return False
 
-
-main()
+    main()
