@@ -1,4 +1,5 @@
 import sys
+import signal
 from glob import glob
 from time import time
 import os
@@ -6,6 +7,8 @@ import subprocess
 from time import sleep
 
 check_interval = 0.1
+# runner = sys.executable
+runner = ["uv", "run"]
 
 
 def main():
@@ -17,19 +20,20 @@ def main():
         elif len(files) == 0:
             print("No arguments and no .py files found.")
             wait_for_a_script_to_be_created()
-        args = [sys.executable, get_python_files()[0]]
+        args = runner + get_python_files()[:1]
     else:
-        args = [sys.executable] + sys.argv[1:]
+        args = runner + sys.argv[1:]
     start_time = time()
     files = get_python_files()
     child = subprocess.Popen(args)
     while True:
         sleep(check_interval)
         if something_changed(files, start_time):
-            child.kill()
+            # child.kill()
+            child.send_signal(signal.SIGTERM)
             if get_python_files() == []:
                 wait_for_a_script_to_be_created()
-                args = [sys.executable, get_python_files()[0]]
+                args = runner + get_python_files()[:1]
             child = subprocess.Popen(args)
             start_time = time()
 
